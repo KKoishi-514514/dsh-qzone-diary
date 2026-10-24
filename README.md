@@ -85,18 +85,23 @@ SnowLuma 自带的 `comment_qzone` 只能发**顶层评论**（`emotion_cgi_re_f
 
 ## 安装后先别急着让它跑
 
-### 先填这四个（源码里故意留空，别把你的号提交上去）
+### 先填这几个（源码里故意全部留空，别把你的号提交上去）
 
 | 字段 | 填什么 |
 |---|---|
 | `sourceKey` | `private:<你自己的 QQ 号>` —— 从你和 Bot 的私聊里取材 |
 | `comments.ownerQQ` | 主人的 QQ 号（数字）。也可以不写 config，设环境变量 `QQ_QZONE_OWNER_QQ` |
 | `comments.ownerNick` | 主人在 QQ 空间的昵称，用于认出「这人就是主人」 |
-| `rolePath` | 你的角色卡路径，如 `D:/qq/qq-bridge/roles/小鲸.md` |
+| `comments.spaceNick` | 她在 QQ 空间的昵称，用于「这就是我自己」的判定 |
+| `rolePath` | 你的角色卡路径，如 `<你的qq-bridge目录>/roles/小鲸.md` |
 
-其余路径（`moodPath` / `notesPath` / `sessionsPath` / `snowlumaConfigDir`）按你自己的安装位置改。
+其余路径同样默认为空，按你自己的安装位置填：
+`notesPath` / `spaceFile` / `sessionsPath` / `consoleTokenPath` / `snowlumaConfigDir` / `bridgeConfigPath`。
 
-首次启动会在 `<DSH_HOME>/qq-qzone-diary/`（DSH_HOME 通常是 `D:\dsh\deepseek-harness\home`）下生成：
+> 源码里的默认值刻意全部留空 —— 这个仓库不含作者的 QQ 号、昵称或本机路径。
+> 你自己的值只写进 `<DSH_HOME>/qq-qzone-diary/config.json`，那份文件不会被提交。
+
+首次启动会在 `<DSH_HOME>/qq-qzone-diary/`（DSH_HOME 默认 `~/.dsh`，可用环境变量 `DSH_HOME` 指定）下生成：
 
 | 文件 | 作用 |
 |---|---|
@@ -122,10 +127,10 @@ SnowLuma 自带的 `comment_qzone` 只能发**顶层评论**（`emotion_cgi_re_f
 | 字段 | 默认 | 说明 |
 |---|---|---|
 | `enabled` | `true` | 总开关 |
-| `sourceKey` | `private:<主人的QQ号>` | 从哪个会话取材（说说固定发在 SnowLuma 登录的那个号的空间） |
-| `rolePath` | `D:/qq/qq-bridge/roles/小鲸.md` | 人设卡，改一次立刻生效（按 mtime 缓存） |
+| `sourceKey` | 空（必填） | 从哪个会话取材，形如 `private:你的QQ号`；说说固定发在 SnowLuma 登录的那个号的空间 |
+| `rolePath` | 空（必填） | 人设卡，改一次立刻生效（按 mtime 缓存） |
 | `moodPath` | `<DSH_HOME>/feiyu-mood/state.json` | 心情来源 |
-| `notesPath` | `D:/qq/qq-bridge/state/shared-notes.json` | 共享笔记 |
+| `notesPath` | 空 | 共享笔记 |
 | `activeHours` | `["08:30","23:40"]` | 只在这个时段里发 |
 | `gapMinutes` | `[150,400]` | 两次之间的随机间隔（分钟） |
 | `writeChance` | `0.62` | 到点后真的想写的概率 |
