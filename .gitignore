@@ -1,0 +1,25 @@
+# 依赖
+node_modules/
+
+# 运行数据与本地配置（绝不上传）
+state/
+config.json
+*.log
+*.jsonl
+
+# 本地凭证 / 缓存
+.env
+.env.*
+.credentials.yaml
+*.db
+*.db-journal
+
+# 用户自己丢的配图（体积大且可能含私人照片）
+images/
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.bak-*

@@ -1,0 +1,7 @@
+# qq-qzone-diary：只挂宿主半边（定时 + 调模型 + 发说说），没有浏览器 UI。
+# 这里的 config 会叠在 <DSH_HOME>/qq-qzone-diary/config.json 之上 —— 想改参数，
+# 改这里（会触发热重载）或者改那个 json 文件（要重启/重载）都行。
+- insert:
+    - id: qq-qzone-diary
+      name: qq-qzone-diary
+      config: {}
